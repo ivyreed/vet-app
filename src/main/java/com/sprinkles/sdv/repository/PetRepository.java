@@ -2,7 +2,9 @@ package com.sprinkles.sdv.repository;
 
 import com.sprinkles.sdv.config.DatabaseConfig;
 import com.sprinkles.sdv.datatransferobject.PetDTO;
+import com.sprinkles.sdv.models.Pet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -13,17 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 @Repository
-public class PetRepository {
-    public void enter(PetDTO petdto){
-        tempy.update("INSERT INTO PET(name) VALUES (?)", petdto.name());
-    }
+public interface PetRepository extends JpaRepository<Pet, Integer> {
 
 
-//    private final List<PetDTO> pets= new ArrayList<>();
-
-    public  List<PetDTO> listPets(){
-        return tempy.query("SELECT NAME FROM PET", new PetRowMapper());
-    }
-    @Autowired
-    private JdbcTemplate tempy;
 }

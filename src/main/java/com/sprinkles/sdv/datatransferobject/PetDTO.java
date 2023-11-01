@@ -1,4 +1,4 @@
 package com.sprinkles.sdv.datatransferobject;
 
-public record PetDTO(String name) {
+public record PetDTO(int id, String name) {
 }
